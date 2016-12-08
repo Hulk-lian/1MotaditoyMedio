@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OneHundredMontaditos</string>
+    <string name="no_more">No se pueden añadir mas de 10 por pedido</string>
+</resources>
