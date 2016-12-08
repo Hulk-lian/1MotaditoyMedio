@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jtcode.onehundredmontaditos.OrderActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:stretchColumns="2"
+        android:id="@+id/tableOrder">
+
+        <TableRow
+        android:id="@+id/rowItem">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txName"
+                android:text="@string/nameItem"
+                android:textSize="20dp"
+                android:layout_column="1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txCant"
+                android:text="@string/cantItem"
+                android:layout_column="2"
+                android:textAlignment="textEnd"
+                android:layout_gravity="end"
+                android:textSize="20dp"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

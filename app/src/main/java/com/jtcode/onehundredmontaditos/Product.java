@@ -2,13 +2,13 @@ package com.jtcode.onehundredmontaditos;
 
 import java.util.Comparator;
 
-public class Item implements Comparable<Item>{
+public class Product implements Comparable<Product>{
 
     private String name;
     private int cant;
     private String type;
 
-    public Item(String name, int cant, String type) {
+    public Product(String name, int cant, String type) {
         this.name = name;
         this.cant = cant;
         this.type = type;
@@ -31,26 +31,26 @@ public class Item implements Comparable<Item>{
     }
 
     @Override
-    public int compareTo(Item item) {
+    public int compareTo(Product item) {
         return this.getName().compareToIgnoreCase(item.getName());
     }
 
-    public static Comparator<Item> sortNameAsc=new Comparator<Item>() {
+    public static Comparator<Product> sortNameAsc=new Comparator<Product>() {
         @Override
-        public int compare(Item item, Item t1) {
+        public int compare(Product item, Product t1) {
             return item.getName().compareToIgnoreCase(t1.getName());
         }
     };
-    public static Comparator<Item> sortNameDes=new Comparator<Item>() {
+    public static Comparator<Product> sortNameDes=new Comparator<Product>() {
         @Override
-        public int compare(Item item, Item t1) {
+        public int compare(Product item, Product t1) {
             return t1.getName().compareToIgnoreCase(item.getName());
         }
     };
 
-    public static Comparator<Item> sortTypeAsc=new Comparator<Item>() {
+    public static Comparator<Product> sortTypeAsc=new Comparator<Product>() {
         @Override
-        public int compare(Item item, Item t1) {
+        public int compare(Product item, Product t1) {
             if(t1.getType()==item.getType()) {
                 return item.getName().compareToIgnoreCase(t1.getName());
             }else{
@@ -58,9 +58,9 @@ public class Item implements Comparable<Item>{
             }
         }
     };
-    public static Comparator<Item> sortTypeDes=new Comparator<Item>() {
+    public static Comparator<Product> sortTypeDes=new Comparator<Product>() {
         @Override
-        public int compare(Item item, Item t1) {
+        public int compare(Product item, Product t1) {
             if(t1.getType()==item.getType()) {
                 return t1.getName().compareToIgnoreCase(item.getName());
             }else{

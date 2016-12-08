@@ -27,7 +27,7 @@
     <Button
         android:layout_width="@dimen/btnbox"
         android:layout_height="@dimen/btnbox"
-        android:id="@+id/btlLess"
+        android:id="@+id/btnLess"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/ic_rmv"

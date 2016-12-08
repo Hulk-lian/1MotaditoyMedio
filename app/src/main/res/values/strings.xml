@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">OneHundredMontaditos</string>
+    <string name="app_name">100Montaditos</string>
     <string name="no_more">No se pueden añadir mas de 10 por pedido</string>
+    <string name="no_negcount">El minimo es 0</string>
+    <string name="nameItem">Nombre Producto</string>
+    <string name="cantItem">Cantidad</string>
 </resources>

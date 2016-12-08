@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@android:drawable/ic_menu_sort_alphabetically"
+        android:id="@+id/action_alpOrder"
+        android:title="orderAlf"
+        app:showAsAction="always"/>
+    <item
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:id="@+id/action_typeOrder"
+        android:title="orderType"
+        app:showAsAction="always"/>
+</menu>
