@@ -13,4 +13,14 @@
         android:id="@+id/action_typeOrder"
         android:title="orderType"
         app:showAsAction="always"/>
+    <item
+        android:icon="@drawable/ic_only_food"
+        android:id="@+id/action_onlyFood"
+        android:title="orderAlf"
+        app:showAsAction="always"/>
+    <item
+        android:icon="@drawable/ic_only_drinks"
+        android:id="@+id/action_onlyDrinks"
+        android:title="orderType"
+        app:showAsAction="always"/>
 </menu>

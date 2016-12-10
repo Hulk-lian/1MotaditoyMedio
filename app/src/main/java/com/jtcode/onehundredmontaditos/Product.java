@@ -26,8 +26,11 @@ public class Product implements Comparable<Product>{
         return type;
     }
 
+    public void incCant(int cant){
+        this.cant+=cant;
+    }
     public void setCant(int cant) {
-        this.cant += cant;
+        this.cant = cant;
     }
 
     @Override

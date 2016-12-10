@@ -3,9 +3,6 @@ package com.jtcode.onehundredmontaditos;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Hulk-lián on 08/12/2016.
- */
 public class Repository {
     static String B="bebida";
     static String M="Montadito";
@@ -35,9 +32,11 @@ public class Repository {
         allItems.add(new Product("Tinto de verano", 0, B));
         allItems.add(new Product("Tinto de invierno", 0, B));
     }
+
     public static List<Product> getAll(){
         return allItems;
     }
+
     public static ArrayList<Product> getDrinks(){
         ArrayList<Product> ptemp=new ArrayList();
         for(Product p: allItems){

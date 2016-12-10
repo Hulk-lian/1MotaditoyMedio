@@ -20,13 +20,11 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabSend;
     boolean alph=false;
     boolean type=false;
-    SharedPreferences shared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        shared=PreferenceManager.getDefaultSharedPreferences(this);
         init();
     }
     private void init(){
@@ -40,18 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //no funciona debido a los elementos de la lista
         lvItems.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Tipos elementos").setCancelable(true)
-                        .setItems(R.array.optionsTypes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                showTypes(i);
-                            }
-                        });
-                builder.create();
                 return false;
             }
         });
@@ -73,17 +63,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void safePrefs(){
-        SharedPreferences.Editor editor=shared.edit();
-        for(int i=0;i<lvItems.getCount();i++){
-            if(productAdapter.getItem(i).getCant()>0){
-                editor.putInt(productAdapter.getItem(i).getName(),productAdapter.getItem(i).getCant());
-            }
-            else
-                editor.remove(productAdapter.getItem(i).getName());
-        }
-        editor.commit();
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
@@ -112,17 +91,48 @@ public class MainActivity extends AppCompatActivity {
                 }
                 type=!type;
                 break;
+            case R.id.action_onlyFood:
+                showAlertD();
+                break;
+            case R.id.action_onlyDrinks:
+                showAlertD();
+                break;
         }
         productAdapter.sortBy(option);
 
         return super.onOptionsItemSelected(item);
     }
+    private void showAlertD(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Tipos elementos").setCancelable(true)
+                .setItems(R.array.optionsTypes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        showTypes(i);
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        productAdapter.safePrefs();
+        Toast.makeText(this,"guardado",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        productAdapter.readPrefs();
+        Toast.makeText(this,"restaurado",Toast.LENGTH_SHORT).show();
+    }
+/* @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //safe the items with cant!=0
         safePrefs();
         Toast.makeText(this,"guardado",Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

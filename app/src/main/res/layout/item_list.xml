@@ -43,6 +43,7 @@
         android:maxLength="2"
         android:enabled="false"
         android:layout_toLeftOf="@id/btnPlus"
-        android:layout_alignBaseline="@id/txvName"/>
+        android:layout_alignBaseline="@id/txvName"
+        android:focusable="false"/>
 
 </RelativeLayout>

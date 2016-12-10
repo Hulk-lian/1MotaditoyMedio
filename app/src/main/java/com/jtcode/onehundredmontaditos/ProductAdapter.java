@@ -33,14 +33,25 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         readPrefs();
     }
     //lectura de los elementos de la preferencia
-    private void readPrefs(){
+    public void readPrefs(){
         Map<String,?> preorder=sharedPreferences.getAll();
 
         for(int i=0;i<getCount();i++){
-            if(preorder.containsKey(getItem(i).getName())){
-                getItem(i).setCant(sharedPreferences.getInt(getItem(i).getName(),0));
+            if(preorder.containsKey(localList.get(i).getName())){
+                getItem(i).setCant(sharedPreferences.getInt(localList.get(i).getName(),0));
             }
         }
+    }
+    public void safePrefs(){
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        for(int i=0;i<localList.size();i++){
+            if(localList.get(i).getCant()>0){
+                editor.putInt(localList.get(i).getName(),localList.get(i).getCant());
+            }
+            else
+                editor.remove(localList.get(i).getName());
+        }
+        editor.commit();
     }
 
     @NonNull
@@ -61,7 +72,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             ph.btnrm=(Button)viewItem.findViewById(R.id.btnLess);
             ph.edtCant=(EditText)viewItem.findViewById(R.id.edtCant);
             ph.txvName=(TextView)viewItem.findViewById(R.id.txvName);
-
+            ph.edtCant.setFocusable(false);
             //tag
             viewItem.setTag(ph);
         }
@@ -76,7 +87,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             @Override
             public void onClick(View view) {
                 if(getItem(position).getCant()>0) {
-                    getItem(position).setCant(-1);
+                    getItem(position).incCant(-1);
                 }
                 else{
                     Toast.makeText(context,R.string.no_negcount,Toast.LENGTH_SHORT).show();
@@ -88,7 +99,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             @Override
             public void onClick(View view) {
                 if(getItem(position).getCant()<10) {
-                    getItem(position).setCant(+1);
+                    getItem(position).incCant(+1);
                 }
                 else{
                     Toast.makeText(context,R.string.no_more,Toast.LENGTH_SHORT).show();
