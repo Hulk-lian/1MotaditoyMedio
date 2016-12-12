@@ -18,7 +18,7 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         init();
-        addData();
+       addData();
     }
     private void init(){
         products= getIntent().getParcelableArrayListExtra(ConstantsNames.LISTTAG);
@@ -28,7 +28,6 @@ public class OrderActivity extends AppCompatActivity {
 
     private void addData(){
         //recorrer en un for la cantidad de elementos que se han enviado en el pedido
-
         TextView txvName,txvCant;
         TableRow row;
         for (int i=0;i<products.size();i++){
@@ -37,7 +36,7 @@ public class OrderActivity extends AppCompatActivity {
             txvName.setText(products.get(i).getName());
             row.addView(txvName);
             txvCant=new TextView(this);
-            txvCant.setText(products.get(i).getCant());
+            txvCant.setText(String.valueOf(products.get(i).getCant()));
             row.addView(txvCant);
             table.addView(row);
         }

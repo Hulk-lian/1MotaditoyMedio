@@ -17,28 +17,25 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:stretchColumns="2"
         android:id="@+id/tableOrder">
 
         <TableRow
         android:id="@+id/rowItem">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/txName"
                 android:text="@string/nameItem"
-                android:textSize="20dp"
-                android:layout_column="1"/>
+                android:textSize="20dp"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/txCant"
                 android:text="@string/cantItem"
-                android:layout_column="2"
-                android:textAlignment="textEnd"
-                android:layout_gravity="end"
                 android:textSize="20dp"/>
         </TableRow>
+
     </TableLayout>
+
 </RelativeLayout>

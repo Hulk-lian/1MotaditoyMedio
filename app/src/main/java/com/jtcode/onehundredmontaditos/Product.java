@@ -101,5 +101,6 @@ public class Product implements Comparable<Product>, Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.name);
         parcel.writeInt(this.cant);
+        parcel.writeString(this.type);
     }
 }

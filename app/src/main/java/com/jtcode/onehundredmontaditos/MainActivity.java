@@ -81,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
         b.putParcelableArrayList(ConstantsNames.LISTTAG,order);
         intent.putExtra(ConstantsNames.BUNDTAG,b);*/
         intent.putParcelableArrayListExtra(ConstantsNames.LISTTAG, order);
+        productAdapter.clearPref();
         startActivity(intent);
+        productAdapter.reset();
     }
 
     @Override

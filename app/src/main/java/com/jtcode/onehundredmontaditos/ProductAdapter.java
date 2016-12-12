@@ -55,6 +55,20 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         editor.commit();
     }
 
+
+    public void clearPref(){
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
+    public void reset(){
+        for(int i=0;i<localList.size();i++){
+            if(localList.get(i).getCant()>0){
+                localList.get(i).setCant(0);
+            }
+        }
+    }
+
     @NonNull
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
