@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -144,6 +145,9 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         notifyDataSetChanged();
     }
 
+    public List<Product> getAllProds(){
+        return Repository.getAll();
+    }
     class ProductHolder{
         TextView txvName;
         EditText edtCant;

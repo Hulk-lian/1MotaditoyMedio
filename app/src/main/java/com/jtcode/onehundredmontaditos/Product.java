@@ -1,8 +1,11 @@
 package com.jtcode.onehundredmontaditos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Comparator;
 
-public class Product implements Comparable<Product>{
+public class Product implements Comparable<Product>, Parcelable{
 
     private String name;
     private int cant;
@@ -12,6 +15,12 @@ public class Product implements Comparable<Product>{
         this.name = name;
         this.cant = cant;
         this.type = type;
+    }
+
+    protected Product(Parcel in) {
+        name = in.readString();
+        cant = in.readInt();
+        type = in.readString();
     }
 
     public String getName() {
@@ -72,5 +81,25 @@ public class Product implements Comparable<Product>{
         }
     };
 
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
 
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.name);
+        parcel.writeInt(this.cant);
+    }
 }

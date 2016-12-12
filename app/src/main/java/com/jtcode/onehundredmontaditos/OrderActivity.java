@@ -7,6 +7,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class OrderActivity extends AppCompatActivity {
 
@@ -20,7 +21,9 @@ public class OrderActivity extends AppCompatActivity {
         addData();
     }
     private void init(){
+        products= getIntent().getParcelableArrayListExtra(ConstantsNames.LISTTAG);
         table=(TableLayout)findViewById(R.id.tableOrder);
+
     }
 
     private void addData(){

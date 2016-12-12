@@ -6,4 +6,8 @@ public interface ConstantsNames {
     int NAMEDES=1;
     int TYPEASC=2;
     int TYPEDES=3;
+
+    String LISTTAG="ORDER";
+
+    String BUNDTAG="Bun";
 }
